@@ -1,0 +1,27 @@
+####################################################LOCAL FILE INCLUSION(LFI)###############################################################
+
+
+       What is a Local File Inclusion (LFI) vulnerability?
+
+An LFI vulnerability is found in various web applications. As an example, in the PHP, the following functions cause this kind of vulnerability:
+
+    include
+    require
+    include_once 
+    require_once 
+    
+    What is the risk of LFI?
+
+Once you find an LFI vulnerability, it is possible to read sensitive data if you have readable permissions on files. Thus, one of the most significant risks is leaking sensitive data accessed by a regular user. Also, in some cases, an LFI vulnerability could be chained to perform Remote Code Execution RCE on the server. If we can inject or write to a file on the system, we take advantage of LFI to get RCE. In this task, we prepared a web application with an LFI vulnerability and a possible way to get RCE. We'll be looking at this web application later.
+
+Identifying and testing for LFI
+
+Usually, attackers are interested in HTTP parameters to manipulate the input and inject attack payloads to see how the web application behaves. In general, if you are looking for an entry point to test web application attack types, then it is important to use the web app and check its functionalities. An entry point could be HTTP GET  or POST  parameters that pass an argument or data to the web application to perform a specific operation. 
+
+Parameters are query parameter strings attached to the URL that could be used to retrieve data or perform actions based on user input. The following graph explains and breaks down the essential parts of the URL
+   
+                                |->domain  |->filename 
+                   ex:  http://webapp.thm/get.php?/file=--.pdf
+                          |__>protocal 
+                          
+                          
