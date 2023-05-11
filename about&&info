@@ -25,3 +25,7 @@ Parameters are query parameter strings attached to the URL that could be used to
                           |__>protocal 
                           
                           
+                          
+            ----------PHP FILTER CODE-------------
+              php://filter/convert.base64-encode/resource=FILEPATH/FILENAME
+              
